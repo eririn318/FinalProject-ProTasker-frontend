@@ -15,16 +15,16 @@ function App() {
         <Navbar />
     <Routes>
       {/* Public route */}
-      <Route path="/auth" element={<AuthPage/>} />
+      <Route path="/" element={<AuthPage/>} />
      
 
       {/* Protected routes */}
-      <Route path="/" element={
+      {/* <Route path="/" element={
         <ProtectedRoute>
         <HomePage/>
         </ProtectedRoute>
         }
-        />
+        /> */}
       <Route path="/projects" element={
         <ProtectedRoute>
         <ProjectPage/>
