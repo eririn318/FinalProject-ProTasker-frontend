@@ -3,6 +3,7 @@ import { apiClient } from "../clients/api";
 import { Link } from "react-router-dom";
 import type { Project } from "../types";
 
+
 function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(false);
