@@ -106,7 +106,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         setToken(token)
 
         return {success: true}
-    }catch(error:unknown){
+    }catch(error){
         console.error("Register error:", error)
         // throw new Error(error.response?.data?.message || "Registration failed")
 
