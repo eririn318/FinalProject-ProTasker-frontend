@@ -29,7 +29,6 @@ function TaskList({ projectId }: TaskListProps) {
   const [editedTaskDescription, setEditedTaskDescription] = useState("");
   const [editedTaskStatus, setEditedTaskStatus] = useState("To Do");
 
-
   // GET - Fetch all tasks
   useEffect(() => {
     const fetchTasks = async () => {
@@ -112,7 +111,7 @@ function TaskList({ projectId }: TaskListProps) {
         {
           title: editedTaskTitle,
           description: editedTaskDescription,
-           status: editedTaskStatus,
+          status: editedTaskStatus,
         }
       );
 
@@ -196,16 +195,6 @@ function TaskList({ projectId }: TaskListProps) {
             placeholder="Task description (optional)"
           />
 
-          <select
-            className="text-white border-2 border-gray-400 p-2 rounded w-full mb-3"
-            value={editedTaskStatus}
-            onChange={(e) => setEditedTaskStatus(e.target.value)}
-          >
-            <option value="To Do">To Do</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Done">Done</option>
-          </select>
-
           <div className="flex gap-2">
             <button
               className="bg-blue-600 hover:bg-blue-70 text-white px-4 py-2 rounded transition"
@@ -284,8 +273,8 @@ function TaskList({ projectId }: TaskListProps) {
                   <div className="text-white flex-1">
                     <h3 className="text-xl font-semibold mb-1">{task.title}</h3>
                     <span className="text-sm px-2 py-1 rounded bg-gray-700 text-green-300 block w-fit mb-2">
-    {task.status}
-  </span>
+                      {task.status}
+                    </span>
                     {task.description && (
                       <p className="text-gray-300 text-sm whitespace-pre-wrap">
                         {task.description}
@@ -303,7 +292,7 @@ function TaskList({ projectId }: TaskListProps) {
                     <button
                       className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition"
                       onClick={() => handleDeleteTask(task._id)}
-                      disabled={loading}  // If loading is true → the button becomes disabled(unclickable)
+                      disabled={loading} // If loading is true → the button becomes disabled(unclickable)
                     >
                       Delete
                     </button>

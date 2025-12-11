@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import {useNavigate} from "react-router-dom"
-import {AuthContext} from "../context/AuthProvider"
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 function AuthPage() {
   const [showRegister, setShowRegister] = useState(true);
@@ -10,17 +10,17 @@ function AuthPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const authContext = useContext(AuthContext)
-  const navigate = useNavigate()
-  const {logIn, register} = authContext!
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { logIn, register } = authContext!;
 
   const handleLogin = async () => {
     try {
       setError("");
       setLoading(true);
       // api call here
-      await logIn(email,password)
-      navigate("/projects")
+      await logIn(email, password);
+      navigate("/projects");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(error.message);
@@ -35,8 +35,8 @@ function AuthPage() {
       setError("");
       setLoading(true);
       // api call here
-      await register(username, email, password)
-      navigate("/projects")
+      await register(username, email, password);
+      navigate("/projects");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(error.message);
@@ -46,7 +46,6 @@ function AuthPage() {
     }
   };
 
-  
   return (
     <div className="text-white flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold mt-10 text-center">
@@ -59,15 +58,15 @@ function AuthPage() {
       {/* FORM  */}
       {showRegister ? (
         <form
-        onSubmit={(e)=>{
-          // prevent page reload
-          // without e.preventDefault can cause the page to refresh before login function runs.
-          e.preventDefault()
-          handleRegister()}}
+          onSubmit={(e) => {
+            // prevent page reload
+            // without e.preventDefault can cause the page to refresh before login function runs.
+            e.preventDefault();
+            handleRegister();
+          }}
           className="border mt-10 p-2 h-60 w-150 flex flex-col justify-around items-center rounded"
         >
           <div className="text-xl font-bold">Register</div>
-          
 
           <label htmlFor="username">
             Username:
@@ -111,12 +110,12 @@ function AuthPage() {
         </form>
       ) : (
         <form
-          onSubmit={(e) =>{
+          onSubmit={(e) => {
             // prevent page reload
             // can cause the page to refresh before login function runs.
-            e.preventDefault()
-            handleLogin()
-        }}
+            e.preventDefault();
+            handleLogin();
+          }}
           className="border mt-10 p-2 h-60 w-150 flex flex-col justify-around items-center rounded"
         >
           <div className="text-xl font-bold">Login</div>
@@ -126,7 +125,7 @@ function AuthPage() {
               type="text"
               name="email"
               value={email}
-            //   React collects email
+              //   React collects email
               onChange={(e) => setEmail(e.target.value)}
               className="ml-10 border rounded"
             />
@@ -137,7 +136,7 @@ function AuthPage() {
               type="password"
               name="password"
               value={password}
-               //   React collects password
+              //   React collects password
               onChange={(e) => setPassword(e.target.value)}
               className="ml-3 border rounded"
             />
@@ -175,7 +174,6 @@ function AuthPage() {
             Sign up
           </span>{" "}
         </div>
-        
       )}
     </div>
   );

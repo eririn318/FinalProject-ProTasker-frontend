@@ -1,18 +1,18 @@
 // import React from "react"
-import {Navigate} from "react-router-dom"
-interface ProtectedRouteProps{
-   children:React.ReactNode
+import { Navigate } from "react-router-dom";
+interface ProtectedRouteProps {
+  children: React.ReactNode;
 }
-const ProtectedRoute = ({children}:ProtectedRouteProps) => {
-    const token = localStorage.getItem("token") //check if user is logged in
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+  const token = localStorage.getItem("token"); //check if user is logged in
 
-    if(!token) {
-        // if no token, redirect to login page
-        return <Navigate to="/auth" replace />
-    }
+  if (!token) {
+    // if no token, redirect to login page
+    return <Navigate to="/auth" replace />;
+  }
 
-    // If logged in, show the page
-    return children
-}
+  // If logged in, show the page
+  return children;
+};
 
-export default ProtectedRoute
+export default ProtectedRoute;
