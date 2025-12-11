@@ -39,8 +39,11 @@ function AuthPage() {
       navigate("/projects");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      console.error(error.message);
-      setError(error.message);
+    //   console.error(error.message);
+    //   setError(error.message);
+    console.error("Register error:", error);
+    // <-- throw error so frontend can catch it and show messages
+    throw new Error(error.response?.data?.message || "Registration failed");
     } finally {
       setLoading(false);
     }
