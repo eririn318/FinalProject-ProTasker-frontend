@@ -1,7 +1,9 @@
-import React from "react"
+// import React from "react"
 import {Navigate} from "react-router-dom"
-
-const ProtectedRoute = ({children}) => {
+interface ProtectedRouteProps{
+   children:React.ReactNode
+}
+const ProtectedRoute = ({children}:ProtectedRouteProps) => {
     const token = localStorage.getItem("token") //check if user is logged in
 
     if(!token) {
