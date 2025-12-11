@@ -1,5 +1,5 @@
 import {Routes,Route} from "react-router-dom"
-// import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import Navbar from "./components/Navbar";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
@@ -15,16 +15,16 @@ function App() {
         <Navbar />
     <Routes>
       {/* Public route */}
-      <Route path="/" element={<AuthPage/>} />
+      <Route path="/auth" element={<AuthPage/>} />
      
 
       {/* Protected routes */}
-      {/* <Route path="/" element={
+      <Route path="/" element={
         <ProtectedRoute>
         <HomePage/>
         </ProtectedRoute>
         }
-        /> */}
+        />
       <Route path="/projects" element={
         <ProtectedRoute>
         <ProjectPage/>
