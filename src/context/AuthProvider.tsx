@@ -88,8 +88,8 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     } catch (error: unknown) {
       // output shows full error message, Login error: error-> throw into new Error error.(from console) response:{}, message:.... (from .message)
       console.error("Login error: ", error);
-      // // shows in backend error
-      // throw new Error(error.response?.data?.message || "Login failed")
+      // shows in backend error
+      throw new Error(error.response?.data?.message || "Login failed")
     }
   };
 
@@ -112,7 +112,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       return { success: true };
     } catch (error) {
       console.error("Register error:", error);
-      // throw new Error(error.response?.data?.message || "Registration failed")
+      throw new Error(error.response?.data?.message || "Registration failed")
     }
   };
 
